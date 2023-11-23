@@ -8,7 +8,7 @@ var text = fs.readFileSync('../data/gtor.md', 'utf-8');
 var headings = parse(text);
 var root = transform(headings);
 
-// console.log(root);
+console.log(root);
 
 //fs.writeFileSync('../data/tree.json', JSON.stringify(root, null, 2));
 fs.writeFileSync('../data/tree.json', JSON.stringify(root, null, 2));
@@ -87,36 +87,30 @@ function fileListAllConsole() {
 
 
     var transformedData = [];
+    var transformedDataObject = {};
 
     fileListAll.forEach(function(file) {
         console.log('----processing file----');   
-        console.log(file);
+     //  console.log(file);
 
         var parsed = parse(file.contents);
-        var transformed = transform(parsed);
+        let transformed = transform(parsed);
 
-        console.log(transformed);
-
-        transformedData.push(transformed);
+        // console.log(transformed);
+        transformedDataObject[file.filename] = transformed;
+        //transformedData.push(transformed);
     });
 
     console.log(transformedData);
 
+    // transformedDataObject = transformedData;
+    
+    console.log('----transformedDataObject----');   
+    //console.log(transformed);
 
-    fs.writeFileSync('../data/js-test01.json', JSON.stringify(transformedData, null, 2));
+    fs.writeFileSync('../data/js-test01.json', JSON.stringify(transformedDataObject, null, 2));
 
-
-    //let Markdown =
-
-    /* 
-        var text = fs.readFileSync('../data/gtor.md', 'utf-8');
-
-        var headings = parse(text);
-        var root = transform(headings);
-    */
-
-    //var a = parse(fileListAll[0]);
-
+ 
     
 
 }
