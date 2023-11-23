@@ -3,7 +3,7 @@ const path = require('path');
 var parse = require('../../lib/parse.markdown');
 var transform = require('../../lib/transform.headings');
 
-var text = fs.readFileSync('../data/gtor.md', 'utf-8');
+var text = fs.readFileSync('../browser/gtor.md', 'utf-8');
 
 var headings = parse(text);
 var root = transform(headings);

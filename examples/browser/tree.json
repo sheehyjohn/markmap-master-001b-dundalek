@@ -1,208 +1,213 @@
 {
   "depth": 1,
   "line": 1,
-  "name": "A General Theory of Reactivity",
+  "name": "A General Theoryasdfasdf of Reactivity",
   "children": [
     {
       "depth": 2,
-      "line": 2,
+      "line": 4,
       "name": "JS is editting this file"
     },
     {
       "depth": 2,
-      "line": 45,
+      "line": 7,
+      "name": "JS is editting this file"
+    },
+    {
+      "depth": 2,
+      "line": 51,
       "name": "Concepts",
       "children": [
         {
           "depth": 3,
-          "line": 101,
+          "line": 107,
           "name": "Singular and temporal"
         },
         {
           "depth": 3,
-          "line": 151,
+          "line": 157,
           "name": "Plural and temporal"
         }
       ]
     },
     {
       "depth": 2,
-      "line": 237,
+      "line": 243,
       "name": "Primitives",
       "children": [
         {
           "depth": 3,
-          "line": 244,
+          "line": 250,
           "name": "Iterators"
         },
         {
           "depth": 3,
-          "line": 363,
+          "line": 369,
           "name": "Generator Functions"
         },
         {
           "depth": 3,
-          "line": 475,
+          "line": 481,
           "name": "Generators"
         },
         {
           "depth": 3,
-          "line": 505,
+          "line": 511,
           "name": "Asynchronous Values"
         },
         {
           "depth": 3,
-          "line": 653,
+          "line": 659,
           "name": "Asynchronous Functions"
         },
         {
           "depth": 3,
-          "line": 748,
+          "line": 754,
           "name": "Promise Queues"
         },
         {
           "depth": 3,
-          "line": 851,
+          "line": 857,
           "name": "Semaphores"
         },
         {
           "depth": 3,
-          "line": 897,
+          "line": 903,
           "name": "Promise Buffers",
           "children": [
             {
               "depth": 4,
-              "line": 959,
+              "line": 965,
               "name": " means “write”."
             },
             {
               "depth": 4,
-              "line": 960,
+              "line": 966,
               "name": " means “close”."
             },
             {
               "depth": 4,
-              "line": 961,
+              "line": 967,
               "name": " means “terminate prematurely with an error”."
             },
             {
               "depth": 4,
-              "line": 962,
+              "line": 968,
               "name": " means “read”."
             },
             {
               "depth": 4,
-              "line": 963,
+              "line": 969,
               "name": " means “abort or cancel with an error”."
             },
             {
               "depth": 4,
-              "line": 964,
+              "line": 970,
               "name": " means “abort or cancel prematurely but without an error”."
             }
           ]
         },
         {
           "depth": 3,
-          "line": 1013,
+          "line": 1019,
           "name": "Promise Iterators",
           "children": [
             {
               "depth": 4,
-              "line": 1056,
+              "line": 1062,
               "name": "map"
             },
             {
               "depth": 4,
-              "line": 1076,
+              "line": 1082,
               "name": "forEach"
             },
             {
               "depth": 4,
-              "line": 1119,
+              "line": 1125,
               "name": "reduce"
             },
             {
               "depth": 4,
-              "line": 1135,
+              "line": 1141,
               "name": "pipe"
             },
             {
               "depth": 4,
-              "line": 1151,
+              "line": 1157,
               "name": "buffer"
             },
             {
               "depth": 4,
-              "line": 1159,
+              "line": 1165,
               "name": "read"
             },
             {
               "depth": 4,
-              "line": 1169,
+              "line": 1175,
               "name": "Remote iterators"
             }
           ]
         },
         {
           "depth": 3,
-          "line": 1194,
+          "line": 1200,
           "name": "Promise Generators"
         },
         {
           "depth": 3,
-          "line": 1232,
+          "line": 1238,
           "name": "Asynchronous Generator Functions"
         },
         {
           "depth": 3,
-          "line": 1413,
+          "line": 1419,
           "name": "Observables",
           "children": [
             {
               "depth": 4,
-              "line": 1484,
+              "line": 1490,
               "name": "TODO make sure this is a summary of the topics in the end:"
             }
           ]
         },
         {
           "depth": 3,
-          "line": 1490,
+          "line": 1496,
           "name": "Observables and Signals"
         },
         {
           "depth": 3,
-          "line": 1561,
+          "line": 1567,
           "name": "Behaviors"
         }
       ]
     },
     {
       "depth": 2,
-      "line": 1579,
+      "line": 1585,
       "name": "Cases",
       "children": [
         {
           "depth": 3,
-          "line": 1581,
+          "line": 1587,
           "name": "Progress and estimated time to completion"
         }
       ]
     },
     {
       "depth": 2,
-      "line": 1635,
+      "line": 1641,
       "name": "Summary"
     },
     {
       "depth": 2,
-      "line": 1665,
+      "line": 1671,
       "name": "Further Work"
     },
     {
       "depth": 2,
-      "line": 1745,
+      "line": 1751,
       "name": "Acknowledgements"
     }
   ]
