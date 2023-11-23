@@ -19,7 +19,8 @@ console.log('-----');
 ////////////////////////////////////////////////////////////////////////////////
 // read multiple markdown files
 // wait for promises to resolve....
-let fileListAll = [];  
+
+let markdownFilesAll = [];       
 
 fs.promises.readdir('C:/code/obsidian/media-2307')
     .then(files => {
@@ -30,50 +31,51 @@ fs.promises.readdir('C:/code/obsidian/media-2307')
             return fs.promises.readFile(filePath, 'utf-8')
             .then(content => {
                 let fileAndContents = {
-                filename: file,
-                contents: content
+                    filename: file,         // markdown file name
+                    contents: content       // markdown file contents
                 };
                 
-                fileListAll.push(fileAndContents);
+                markdownFilesAll.push(fileAndContents);
             });
         }
         });
 
     return Promise.all(promises);
-  })
-  // wait for all promises to resolve
-  // then process the files
-    .then(() => { 
-      
-
+    })
+    // wait for all promises to resolve
+    // then process the files
+    .then(() => {  
 
         var transformedData = [];
-        var transformedDataObject = {};
-        var parsedAll = {};
+        var transformedDataObject = {}; 
 
-        fileListAll.forEach(function(file) {
-            console.log('----processing file----');   
-        //  console.log(file);
+        markdownFilesAll.forEach(function(file) {
+            console.log('----processing file----');    
 
             var parsed = parse(file.contents);
-            let transformed = transform(parsed);
-
-            // console.log(transformed);
-            transformedDataObject[file.filename] = transformed;
-            //transformedData.push(transformed);
+            let transformed = transform(parsed); 
+        
+            transformedDataObject[file.filename] = transformed; 
         });
 
-        console.log(transformedData);
-
-        // transformedDataObject = transformedData;
+        console.log(transformedData); 
         
         console.log('----transformedDataObject----');   
         //console.log(transformed);
 
         fs.writeFileSync('../data/js-test01.json', JSON.stringify(transformedDataObject, null, 2));
+
+        // above reads all the markdown into one json
+        // yes I will put in a MongoDB sync fs.watch sync but let me prove the concept
+        
+        
+
+
+        // also the visualisation
     })
     .catch(err => {
         console.error(err);
   });
 
  
+// everytime obsidian saves a file, it will trigger this function
