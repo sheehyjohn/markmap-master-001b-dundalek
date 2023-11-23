@@ -25,7 +25,7 @@ console.log('-----');
 
 // readDir() for all markdown files
 
-var allMap; 
+
 
 fs.readdir('C:/code/obsidian/media-2307', (err, files) => {
     if (err) throw err;
@@ -38,13 +38,7 @@ fs.readdir('C:/code/obsidian/media-2307', (err, files) => {
                 if (err) throw err;
 
                 console.log(content); // This will log the content of each .md file
-                allMap = content;
             });
         }
     });
 });
-
-var headings = parse(allMap);
-var root = transform(headings);
-
-console.log(root);
