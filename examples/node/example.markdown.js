@@ -25,42 +25,42 @@ console.log('-----');
 
 // readDir() for all markdown files 
  
-var fileListAll = []; 
+let fileListAll = []; 
 
-fs.readdir('C:/code/obsidian/media-2307', (err, files) => {
-    if (err) throw err;
 
-    files.forEach(file => {
-        if (file.endsWith('.md')) {
-            const filePath = path.join('C:/code/obsidian/media-2307', file);
-            console.log(file); 
-             
-            fs.readFile(filePath, 'utf-8', (err, content) => {
-                if (err) throw err;
-                
-               // Create a new fileAndContents object for this file
-                let fileAndContents = {
-                    filename: file,
-                    contents: content
-                };
-                console.log(fileAndContents)
-                fileListAll.push(fileAndContents);
-                //console.log(fileListAll); 
-
-                //console.log(content); // This will log the content of each .md file
-            });
-        }
+fs.promises.readdir('C:/code/obsidian/media-2307')
+  .then(files => {
+    let promises = files.map(file => {
+      if (file.endsWith('.md')) {
+        const filePath = path.join('C:/code/obsidian/media-2307', file);
+        
+        return fs.promises.readFile(filePath, 'utf-8')
+          .then(content => {
+            let fileAndContents = {
+              filename: file,
+              contents: content
+            };
+            
+            fileListAll.push(fileAndContents);
+          });
+      }
     });
+
+    return Promise.all(promises);
+  })
+  .then(() => {
     fileListAllConsole();
-    //console.log('----fileListAll'); 
-    //console.log(fileListAll); 
-     
-});
+  })
+  .catch(err => {
+    console.error(err);
+  });
+
 
 
 
 function fileListAllConsole() {
     console.log('---fileListAllConsole()---');
+    console.log(fileListAll)
    
 
 }
