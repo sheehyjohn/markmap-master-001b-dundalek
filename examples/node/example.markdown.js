@@ -8,7 +8,7 @@ var text = fs.readFileSync('../browser/gtor.md', 'utf-8');
 var headings = parse(text);
 var root = transform(headings);
 
-console.log(root);
+// console.log(root);
 
 //fs.writeFileSync('../data/tree.json', JSON.stringify(root, null, 2));
 fs.writeFileSync('../browser/tree.json', JSON.stringify(root, null, 2));
@@ -69,20 +69,42 @@ fs.promises.readdir('C:/code/obsidian/media-2307')
 
 function fileListAllConsole() {
     console.log('---fileListAllConsole()---');
-    console.log(fileListAll)
+  //  console.log(fileListAll)
 
     // write a loop to go through all the fileListAll
     // for each element of fileListAll, convert it to a string and pass it to the parse function.
     // the parse function will return an array of objects.
 
-    console.log('----reads one file----');   
+   // console.log('----reads one file----');   
 
-    console.log(fileListAll[0]);
+   // console.log(fileListAll[0]);
 
     var a = parse(fileListAll[0].contents);
     var b = transform(a);
+    fs.writeFileSync('../data/js-test01-onefile.json', JSON.stringify(b, null, 2));
 
-    console.log(b)
+   // console.log(b)
+
+
+    var transformedData = [];
+
+    fileListAll.forEach(function(file) {
+        console.log('----processing file----');   
+        console.log(file);
+
+        var parsed = parse(file.contents);
+        var transformed = transform(parsed);
+
+        console.log(transformed);
+
+        transformedData.push(transformed);
+    });
+
+
+
+    fs.writeFileSync('../data/js-test01.json', JSON.stringify(transformedData, null, 2));
+
+
     //let Markdown =
 
     /* 
@@ -94,6 +116,6 @@ function fileListAllConsole() {
 
     //var a = parse(fileListAll[0]);
 
-    fs.writeFileSync('../data/js-test01.json', JSON.stringify(b, null, 2));
+    
 
 }
