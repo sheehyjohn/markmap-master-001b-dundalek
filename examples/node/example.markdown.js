@@ -75,7 +75,7 @@ function fileListAllConsole() {
     // for each element of fileListAll, convert it to a string and pass it to the parse function.
     // the parse function will return an array of objects.
 
-    console.log('----');   
+    console.log('----reads one file----');   
 
     console.log(fileListAll[0]);
 
