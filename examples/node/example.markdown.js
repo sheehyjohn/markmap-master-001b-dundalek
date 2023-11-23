@@ -26,7 +26,7 @@ console.log('-----');
 // readDir() for all markdown files 
  
 let fileListAll = []; 
-
+let MarkdownAll = [];
 
 fs.promises.readdir('C:/code/obsidian/media-2307')
     .then(files => {
@@ -69,8 +69,19 @@ fs.promises.readdir('C:/code/obsidian/media-2307')
 function fileListAllConsole() {
     console.log('---fileListAllConsole()---');
     console.log(fileListAll)
-   
 
+    // write a loop to go through all the fileListAll
+    // for each element of fileListAll, convert it to a string and pass it to the parse function.
+    // the parse function will return an array of objects.
+
+    console.log('----');   
+
+    console.log(fileListAll[0]);
+
+    var a = parse(fileListAll[0].contents);
+    var b = transform(a);
+
+    console.log(b)
     //let Markdown =
 
     /* 
@@ -80,6 +91,8 @@ function fileListAllConsole() {
         var root = transform(headings);
     */
 
-    var a = parse(fileListAll[0]);
+    //var a = parse(fileListAll[0]);
+
+    fs.writeFileSync('../data/js-test01.json', JSON.stringify(b, null, 2));
 
 }

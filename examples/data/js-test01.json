@@ -1,0 +1,30 @@
+{
+  "name": "root",
+  "depth": 0,
+  "children": [
+    {
+      "depth": 1,
+      "line": 0,
+      "name": "movies",
+      "children": [
+        {
+          "depth": 2,
+          "line": 3,
+          "name": "Ronin"
+        }
+      ]
+    },
+    {
+      "depth": 1,
+      "line": 9,
+      "name": "movies - family",
+      "children": [
+        {
+          "depth": 2,
+          "line": 11,
+          "name": "DC Animated Movie Universe"
+        }
+      ]
+    }
+  ]
+}
