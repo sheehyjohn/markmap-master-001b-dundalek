@@ -1,36 +1,50 @@
-
-  {
-    "name": "root",
-    "depth": 0,
+{
+  "test01.md": {
+    "depth": 1,
+    "line": 0,
+    "name": "test01",
     "children": [
       {
-        "depth": 1,
-        "line": 0,
-        "name": "playlists",
+        "depth": 2,
+        "line": 1,
+        "name": "a",
         "children": [
           {
-            "depth": 2,
-            "line": 5,
-            "name": "playlists-3rtPary"
+            "depth": 3,
+            "line": 2,
+            "name": "2"
           }
         ]
       },
       {
-        "depth": 1,
-        "line": 11,
-        "name": "albums",
+        "depth": 2,
+        "line": 3,
+        "name": "b"
+      }
+    ]
+  },
+  "test02.md": {
+    "depth": 1,
+    "line": 0,
+    "name": "test02",
+    "children": [
+      {
+        "depth": 2,
+        "line": 1,
+        "name": "z"
+      },
+      {
+        "depth": 2,
+        "line": 2,
+        "name": "a",
         "children": [
           {
-            "depth": 2,
-            "line": 12,
-            "name": "The National - Laugh Track"
-          },
-          {
-            "depth": 2,
-            "line": 17,
-            "name": "RGB Trio - RGB Trio"
+            "depth": 3,
+            "line": 3,
+            "name": "1"
           }
         ]
       }
     ]
   }
+}
