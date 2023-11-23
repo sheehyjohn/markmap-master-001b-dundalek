@@ -4,7 +4,10 @@ const markmap = require('../../lib/view.mindmap');
 const parse = require('../../lib/parse.markdown');
 const transform = require('../../lib/transform.headings');
 
-d3.text("data/gtor.md", function(error, text) {
+console.log('--js');
+
+
+d3.text("../../data/gtor.md", function(error, text) {
   if (error) throw error;
   const data = transform(parse(text));
 
