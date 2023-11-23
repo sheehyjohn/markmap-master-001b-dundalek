@@ -1,5 +1,5 @@
 
-# A General Theoryasdfasdf of Reactivity
+# A General Theory of Reactivity
 
 asdfasdf
 ## JS is editting this file

@@ -3,7 +3,7 @@ const path = require('path');
 var parse = require('../../lib/parse.markdown');
 var transform = require('../../lib/transform.headings');
 
-var text = fs.readFileSync('../browser/gtor.md', 'utf-8');
+var text = fs.readFileSync('../data/gtor.md', 'utf-8');
 
 var headings = parse(text);
 var root = transform(headings);
@@ -11,7 +11,7 @@ var root = transform(headings);
 // console.log(root);
 
 //fs.writeFileSync('../data/tree.json', JSON.stringify(root, null, 2));
-fs.writeFileSync('../browser/tree.json', JSON.stringify(root, null, 2));
+fs.writeFileSync('../data/tree.json', JSON.stringify(root, null, 2));
 
 // var parse = require('../parse.pandoc');
 // parse.async(text, 'markdown', function(err, headings) {
@@ -100,6 +100,7 @@ function fileListAllConsole() {
         transformedData.push(transformed);
     });
 
+    console.log(transformedData);
 
 
     fs.writeFileSync('../data/js-test01.json', JSON.stringify(transformedData, null, 2));
