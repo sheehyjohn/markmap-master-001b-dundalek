@@ -18,6 +18,7 @@ console.log('-----');
 
 ////////////////////////////////////////////////////////////////////////////////
 // read multiple markdown files
+// wait for promises to resolve....
 let fileListAll = [];  
 
 fs.promises.readdir('C:/code/obsidian/media-2307')
@@ -40,15 +41,10 @@ fs.promises.readdir('C:/code/obsidian/media-2307')
 
     return Promise.all(promises);
   })
+  // wait for all promises to resolve
+  // then process the files
     .then(() => { 
-        console.log('---then()---');
- 
-
-        var a = parse(fileListAll[0].contents);
-        var b = transform(a);
-        fs.writeFileSync('../data/js-test01-onefile.json', JSON.stringify(b, null, 2));
-
-    // console.log(b)
+      
 
 
         var transformedData = [];
