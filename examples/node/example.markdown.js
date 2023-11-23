@@ -10,7 +10,8 @@ var root = transform(headings);
 
 console.log(root);
 
-fs.writeFileSync('../data/tree.json', JSON.stringify(root, null, 2));
+//fs.writeFileSync('../data/tree.json', JSON.stringify(root, null, 2));
+fs.writeFileSync('../browser/tree.json', JSON.stringify(root, null, 2));
 
 // var parse = require('../parse.pandoc');
 // parse.async(text, 'markdown', function(err, headings) {
