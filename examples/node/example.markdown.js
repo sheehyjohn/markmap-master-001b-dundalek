@@ -58,17 +58,53 @@ fs.promises.readdir('C:/code/obsidian/media-2307')
             transformedDataObject[file.filename] = transformed; 
         });
 
-        console.log(transformedData); 
-        
+                
         console.log('----transformedDataObject----');   
         //console.log(transformed);
 
         fs.writeFileSync('../data/js-test01.json', JSON.stringify(transformedDataObject, null, 2));
+        console.log('----savedToOneJSON----'); 
+        console.log();
 
         // above reads all the markdown into one json
         // yes I will put in a MongoDB sync fs.watch sync but let me prove the concept
         
-        
+        markdownFilesAll.forEach(function(file) {
+            console.log('----processing file----');    
+
+            var parsed = parse(file.contents);
+            let transformed = transform(parsed); 
+            console.log(transformed);
+
+
+
+
+           // transformedDataObject[file.filename] = transformed; 
+        });
+
+
+
+        // Your current data
+        let data = {
+            "depth": 1,
+            "line": 0,
+            "name": "markdownFilesAll",
+            // ... other properties ...
+        };
+
+        // Create a new root node
+        let newRoot = {
+            "depth": 0,
+            "line": 0,
+            "name": "newRoot",
+            "children": [data]
+        };
+
+
+
+
+
+        // Now you can use newRoot with D3.js
 
 
         // also the visualisation
@@ -77,5 +113,6 @@ fs.promises.readdir('C:/code/obsidian/media-2307')
         console.error(err);
   });
 
+  
  
 // everytime obsidian saves a file, it will trigger this function
