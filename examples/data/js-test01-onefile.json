@@ -1,11 +1,35 @@
 {
-  "name": "",
-  "depth": 1,
+  "name": "root",
+  "depth": 0,
   "children": [
     {
-      "depth": 2,
-      "line": 9,
-      "name": "Four tet"
+      "depth": 1,
+      "line": 0,
+      "name": "playlists",
+      "children": [
+        {
+          "depth": 2,
+          "line": 5,
+          "name": "playlists-3rtPary"
+        }
+      ]
+    },
+    {
+      "depth": 1,
+      "line": 11,
+      "name": "albums",
+      "children": [
+        {
+          "depth": 2,
+          "line": 12,
+          "name": "The National - Laugh Track"
+        },
+        {
+          "depth": 2,
+          "line": 17,
+          "name": "RGB Trio - RGB Trio"
+        }
+      ]
     }
   ]
 }
