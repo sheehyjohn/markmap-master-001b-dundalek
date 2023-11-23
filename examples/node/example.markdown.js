@@ -19,3 +19,23 @@ fs.writeFileSync('../data/tree.json', JSON.stringify(root, null, 2));
 //
 //   fs.writeFileSync('gtor.json', JSON.stringify(root));
 // });
+
+console.log('-----');
+
+// readDir() for all markdown files
+fs.readdir('C:/code/obsidian/media-2307', (err, files) => {
+    if (err) throw err;
+    console.log(files);
+ 
+    addToMap(); 
+
+
+  });
+
+
+function addToMap(){
+    console.log('add to map');
+
+}
+
+  
