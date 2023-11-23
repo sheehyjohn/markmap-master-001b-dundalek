@@ -7,7 +7,7 @@ const transform = require('../../lib/transform.headings');
 console.log('--js');
 
 
-d3.text("../../data/gtor.md", function(error, text) {
+d3.text("gtor.md", function(error, text) {
   if (error) throw error;
   const data = transform(parse(text));
 
