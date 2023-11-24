@@ -10,8 +10,7 @@ var text = fs.readFileSync('../data/gtor.md', 'utf-8');
 var headings = parse(text);
 var root = transform(headings);
 
-console.log(root);
- 
+console.log(root); 
 fs.writeFileSync('../data/tree.json', JSON.stringify(root, null, 2)); 
 
 console.log('-----');
@@ -25,19 +24,21 @@ let markdownFilesAll = [];
 fs.promises.readdir('C:/code/obsidian/media-2307')
     .then(files => {
         let promises = files.map(file => {
-        if (file.endsWith('.md')) {
-            const filePath = path.join('C:/code/obsidian/media-2307', file);
-            
-            return fs.promises.readFile(filePath, 'utf-8')
-            .then(content => {
-                let fileAndContents = {
-                    filename: file,         // markdown file name
-                    contents: content       // markdown file contents
-                };
+
+            if (file.endsWith('.md')) {
+                const filePath = path.join('C:/code/obsidian/media-2307', file);
                 
-                markdownFilesAll.push(fileAndContents);
-            });
-        }
+                return fs.promises.readFile(filePath, 'utf-8')
+                .then(content => {
+                    let fileAndContents = {
+                        filename: file,         // markdown file name
+                        contents: content       // markdown file contents
+                    };
+                    
+                    markdownFilesAll.push(fileAndContents);
+                });
+            }
+
         });
 
     return Promise.all(promises);
@@ -45,11 +46,10 @@ fs.promises.readdir('C:/code/obsidian/media-2307')
     // wait for all promises to resolve
     // then process the files
     .then(() => {  
+ 
+        var transformedDataObject = {};  
 
-        var transformedData = [];
-        var transformedDataObject = {}; 
-
-        markdownFilesAll.forEach(function(file) {
+        markdownFilesAll.forEach((file) => {
             console.log('----processing file----');    
 
             var parsed = parse(file.contents);
@@ -68,51 +68,57 @@ fs.promises.readdir('C:/code/obsidian/media-2307')
 
         // above reads all the markdown into one json
         // yes I will put in a MongoDB sync fs.watch sync but let me prove the concept
-        
-        markdownFilesAll.forEach(function(file) {
+         // Your current data
+         let data = {
+            "depth": 1,
+            "line": 0,
+            "name": "markdownFilesAll01a",
+            "children": [] // the children will be added later
+        };
+
+        markdownFilesAll.forEach((file) => {
             console.log('----processing file----');    
 
             var parsed = parse(file.contents);
             let transformed = transform(parsed); 
             console.log(transformed);
 
+            console.log('----transformedUp file----');    
+            incrementDepth(transformed);
+            //console.log(transformed); 
+            console.log('----children----');
+            //console.log(transformed.children);
 
+            let jsonObject = {
+                "depth": 2,
+                "line": 1,
+                "name": file.filename,
+                "children": transformed.children
+            };
+            console.log(jsonObject); 
 
-
-           // transformedDataObject[file.filename] = transformed; 
+           data.children.push(jsonObject);     // add the child to the root node
         });
+ 
+       // Convert the data to a JSON string 
+        fs.writeFileSync('../data/js-test02.json', JSON.stringify(data, null, 2));
+   
 
-
-
-        // Your current data
-        let data = {
-            "depth": 1,
-            "line": 0,
-            "name": "markdownFilesAll",
-            // ... other properties ...
-        };
-
-        // Create a new root node
-        let newRoot = {
-            "depth": 0,
-            "line": 0,
-            "name": "newRoot",
-            "children": [data]
-        };
-
-
-
-
-
-        // Now you can use newRoot with D3.js
-
-
+        // Now you can use newRoot with D3.js 
         // also the visualisation
     })
     .catch(err => {
         console.error(err);
   });
 
-  
+  function incrementDepth(node) {
+    node.depth += 1;
+    if (node.children) {
+      node.children.forEach(incrementDepth);
+    }
+    //return nodeUp
+  }
  
 // everytime obsidian saves a file, it will trigger this function
+
+// Merge The Markdown Files to Create a Single edrawMind Map
